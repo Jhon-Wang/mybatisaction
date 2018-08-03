@@ -12,7 +12,17 @@ import org.mybatis.example.entity.Blog;
 public interface BlogMapper {
 
 
+    /**
+     * 根据id 查询Blog
+     * @param id 博客ID
+     * @return 博客实体
+     */
     Blog selectBlog(int id);
 
+    /**
+     * 插入博客实体
+     * @param blog 博客
+     * @return 数量
+     */
     int insertBlog(Blog blog);
 }
