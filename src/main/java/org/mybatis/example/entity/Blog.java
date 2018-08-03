@@ -39,4 +39,9 @@ public class Blog {
     public void setAuthCode(String authCode) {
         this.authCode = authCode;
     }
+
+    @Override
+    public String toString() {
+        return super.toString();
+    }
 }

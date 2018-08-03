@@ -32,9 +32,9 @@ public class Example {
 
 
             SqlSession sqlSession = sqlSessionFactory.openSession();
-            Blog blog = (Blog) sqlSession.selectOne("org.mybatis.example.Dao.BlogMapper.selectBlog",101);
             BlogMapper blogMapper = sqlSession.getMapper(BlogMapper.class);
-            blogMapper.selectBlog(101);
+            Blog blog = blogMapper.selectBlog(101);
+            System.out.println(blog);
             sqlSession.close();
 
         }catch (IOException e){

@@ -13,4 +13,6 @@ public interface BlogMapper {
 
 
     Blog selectBlog(int id);
+
+    int insertBlog(Blog blog);
 }
