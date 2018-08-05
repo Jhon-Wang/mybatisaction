@@ -6,11 +6,15 @@
 
 
     <select id="selectBlog" resultType="org.mybatis.example.entity.Blog">
-        select * from blog where id = #{id}
+        SELECT * FROM blog WHERE id = #{id}
     </select>
 
-    <insert id="insertBlog" parameterType="org.mybatis.example.entity.Blog">
-        INSERT INTO blog (id,content,auth) value (#{blog}.id,#{blog}.content,#{blog}.auth)
+    <select id="selectAll" resultType="java.util.List">
+        SELECT * FROM blog
+    </select>
+
+    <insert id="insertBlog">
+        INSERT INTO blog (content,auth_code) VALUES (#{content},#{authCode})
     </insert>
 
 
