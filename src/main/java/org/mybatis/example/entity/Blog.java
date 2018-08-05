@@ -10,17 +10,17 @@ package org.mybatis.example.entity;
 
 public class Blog {
 
-    private String id;
+    private int id;
 
     private String content;
 
-    private String authCode;
+    private int authCode;
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -32,16 +32,17 @@ public class Blog {
         this.content = content;
     }
 
-    public String getAuthCode() {
+    public int getAuthCode() {
         return authCode;
     }
 
-    public void setAuthCode(String authCode) {
+    public void setAuthCode(int authCode) {
         this.authCode = authCode;
     }
 
     @Override
     public String toString() {
-        return super.toString();
+        String string = "{ id = " + id + " content = " + content + " authCode = " + authCode + " } ";
+        return string;
     }
 }

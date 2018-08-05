@@ -34,6 +34,15 @@
             <version>3.4.6</version>
         </dependency>
 
+        <!--jdbc 驱动依赖-->
+        <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.12</version>
+        </dependency>
+
+
     </dependencies>
 
     <build>

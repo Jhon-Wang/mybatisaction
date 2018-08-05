@@ -33,12 +33,12 @@ public class Example {
 
             SqlSession sqlSession = sqlSessionFactory.openSession();
             BlogMapper blogMapper = sqlSession.getMapper(BlogMapper.class);
-            Blog blog = blogMapper.selectBlog(101);
+            Blog blog = blogMapper.selectBlog(1);
             System.out.println(blog);
             sqlSession.close();
 
         }catch (IOException e){
-
+            e.printStackTrace();
         }
 
 

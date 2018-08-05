@@ -6,7 +6,7 @@
 
 
     <select id="selectBlog" resultType="org.mybatis.example.entity.Blog">
-        select * from Blog where id = #{id}
+        select * from blog where id = #{id}
     </select>
 
     <insert id="insertBlog" parameterType="org.mybatis.example.entity.Blog">
