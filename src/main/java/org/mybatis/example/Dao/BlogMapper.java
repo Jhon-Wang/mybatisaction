@@ -1,6 +1,9 @@
 package org.mybatis.example.Dao;
 
+import org.apache.ibatis.annotations.Param;
 import org.mybatis.example.entity.Blog;
+
+import java.util.List;
 
 /**
  * Copyright © 2018 pagoda Inc.
@@ -19,10 +22,13 @@ public interface BlogMapper {
      */
     Blog selectBlog(int id);
 
+    List<Blog> selectAll();
+
     /**
      * 插入博客实体
-     * @param blog 博客
-     * @return 数量
+     * @param content 内容
+     * @param authCode 代码
+     * @return
      */
-    int insertBlog(Blog blog);
+    int insertBlog(@Param("content") String content,@Param("authCode") int authCode);
 }
