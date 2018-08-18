@@ -1,4 +1,4 @@
-package org.mybatis.example.Dao;
+package org.mybatis.example.dao;
 
 import org.apache.ibatis.annotations.Param;
 import org.mybatis.example.entity.Blog;

@@ -7,7 +7,7 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.mybatis.example.Dao.BlogMapper;
+import org.mybatis.example.dao.BlogMapper;
 import org.mybatis.example.entity.Blog;
 
 import java.io.IOException;
