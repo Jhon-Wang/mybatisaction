@@ -31,7 +31,7 @@ public interface BlogMapper {
      * 插入博客实体
      * @param content 内容
      * @param authCode 代码
-     * @return
+     * @return 返回修改行数
      */
     int insertBlog(@Param("content") String content,@Param("authCode") int authCode);
 }
