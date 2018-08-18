@@ -42,7 +42,6 @@ public class Blog {
 
     @Override
     public String toString() {
-        String string = "{ id = " + id + " content = " + content + " authCode = " + authCode + " } ";
-        return string;
+        return "{ id = " + id + " content = " + content + " authCode = " + authCode + " } ";
     }
 }
