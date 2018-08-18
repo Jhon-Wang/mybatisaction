@@ -9,7 +9,7 @@
         SELECT * FROM blog WHERE id = #{id}
     </select>
 
-    <select id="selectAll" resultType="java.util.List">
+    <select id="selectAll" resultType="org.mybatis.example.entity.Blog">
         SELECT * FROM blog
     </select>
 
