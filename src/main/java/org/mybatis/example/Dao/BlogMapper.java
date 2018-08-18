@@ -14,7 +14,6 @@ import java.util.List;
  */
 public interface BlogMapper {
 
-
     /**
      * 根据id 查询Blog
      * @param id 博客ID
@@ -22,6 +21,10 @@ public interface BlogMapper {
      */
     Blog selectBlog(int id);
 
+    /**
+     * 查询所有的Blog
+     * @return 所有的Blog
+     */
     List<Blog> selectAll();
 
     /**
