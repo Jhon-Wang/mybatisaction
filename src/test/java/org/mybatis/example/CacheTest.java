@@ -12,6 +12,7 @@ import org.mybatis.example.entity.Blog;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
 
 public class CacheTest {
 
@@ -33,15 +34,22 @@ public class CacheTest {
         }
     }
 
+    /**
+     * 多次查询查看缓存效果
+     */
     @Test
     public void level1CacheTest(){
+
         Blog blog = blogMapper.selectBlog(1);
         System.out.println(blog);
 
         Blog blog1 = blogMapper.selectBlog(1);
-        System.out.println(blog);
+        System.out.println(blog1);
     }
 
+    /**
+     * 更新数据库后缓存是否有效
+     */
     @Test
     public void level1CacheAfterUpdate(){
         Blog blog = blogMapper.selectBlog(1);
@@ -53,12 +61,17 @@ public class CacheTest {
         System.out.println(blog1);
     }
 
+    /**
+     * 不同会话是否共享内部缓存
+     */
     @Test
     public void level1CacheScope(){
-        Blog blog = blogMapper.selectBlog(1);
-        System.out.println(blog);
+        //查询一次使得缓存生效
+        List<Blog> blogs = blogMapper.selectAll();
+        System.out.println(blogs);
 
         try{
+            //新建一个回话 更新数据库
             SqlSession sqlSession1 = sqlSessionFactory.openSession(true);
             BlogMapper blogMapper = sqlSession1.getMapper(BlogMapper.class);
             blogMapper.insertBlog("新的博客",1);
@@ -67,9 +80,9 @@ public class CacheTest {
             o.printStackTrace();
         }
 
-        Blog blog1 = blogMapper.selectBlog(1);
-        System.out.println(blog1);
-
+        //在会话1 中再次查询查看缓存是否生效
+        List<Blog> blogs1 = blogMapper.selectAll();
+        System.out.println(blogs1);
 
     }
 

@@ -27,9 +27,8 @@ public class ExampleTest {
         try {
             inputStream = Resources.getResourceAsStream(resource);
             sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
-            sqlSession = sqlSessionFactory.openSession();
-             blogMapper = sqlSession.getMapper(BlogMapper.class);
-
+            sqlSession = sqlSessionFactory.openSession(true);
+            blogMapper = sqlSession.getMapper(BlogMapper.class);
         }catch (IOException e){
             e.printStackTrace();
         }
@@ -39,7 +38,17 @@ public class ExampleTest {
     public void selectBlogTest(){
         Blog blog = blogMapper.selectBlog(1);
         System.out.println(blog);
+
+        Blog blog2 = new Blog();
+        blog2.setAuthCode(1);
+        blog2.setContent("添加了新的博客");
+        blogMapper.insertBlog("添加了新的博客",1);
+
+        Blog blog1 = blogMapper.selectBlog(1);
+        System.out.println(blog1);
     }
+
+
 
     @Test
     public void selectAllTest(){

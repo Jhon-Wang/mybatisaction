@@ -9,7 +9,7 @@ import java.util.List;
  * Copyright © 2018 pagoda Inc.
  *
  * @author wangjunjun
- * @Description:
+ * @Description: 数据库交互接口定义
  * @date 2018/8/3
  */
 public interface BlogMapper {

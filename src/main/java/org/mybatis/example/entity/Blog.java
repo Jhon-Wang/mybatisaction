@@ -4,7 +4,7 @@ package org.mybatis.example.entity;
  * Copyright © 2018 pagoda Inc.
  *
  * @author wangjunjun
- * @Description:
+ * @Description: 博客实体类
  * @date 2018/8/3
  */
 
