@@ -60,9 +60,39 @@ public class SecondCache {
         System.out.println(blog);
         sqlSession.commit();
         blogMapper1.selectBlog(1);
-
-
     }
+
+    @Test
+    public void testCacheWithUpdate(){
+        SqlSession sqlSession1 = sqlSessionFactory.openSession(true);
+        SqlSession sqlSession2 = sqlSessionFactory.openSession(true);
+
+        BlogMapper blogMapper1 = sqlSession1.getMapper(BlogMapper.class);
+        BlogMapper blogMapper2 =  sqlSession2.getMapper(BlogMapper.class);
+
+        System.out.println("blog 数据："+blogMapper.selectBlog(1));
+        sqlSession.commit();
+        System.out.println("blog 数据："+blogMapper1.selectBlog(1));
+
+        blogMapper2.insertBlog("全新博客",0);
+        sqlSession2.commit();
+        System.out.println("blog 数据："+blogMapper1.selectBlog(1));
+    }
+
+    @Test
+    public void testCacheWithDiffNamespcae() throws  Exception{
+        SqlSession sqlSession1 = sqlSessionFactory.openSession(true);
+        SqlSession sqlSession2 = sqlSessionFactory.openSession(true);
+
+        BlogMapper blogMapper1 = sqlSession1.getMapper(BlogMapper.class);
+        BlogMapper blogMapper2 = sqlSession2.getMapper(BlogMapper.class);
+
+        System.out.println("blog 数据："+blogMapper.selectBlog(1));
+        sqlSession.commit();
+        System.out.println("blog 数据："+blogMapper1.selectBlog(1));
+    }
+
+
 
 }
 
