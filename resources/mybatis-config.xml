@@ -6,7 +6,7 @@
 
     <properties resource="mybatisConfig.properties"/>
     <settings>
-        <setting name="localCacheScope" value="SESSION"/>
+        <setting name="cacheEnabled" value="true"/>
         <setting name="logImpl" value="LOG4J"/>
     </settings>
     <environments default="development">
