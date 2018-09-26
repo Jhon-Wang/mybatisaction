@@ -8,11 +8,10 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mybatis.example.dao.AuthorMapper;
 import org.mybatis.example.dao.BlogMapper;
-import org.mybatis.example.dto.BlogWithAuthor;
-import org.mybatis.example.entity.Blog;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Random;
 
 
 public class SecondCache {
@@ -85,13 +84,15 @@ public class SecondCache {
         blogMapper2.insertBlog("全新博客",0);
         sqlSession2.commit();
         System.out.println("blog 数据："+blogMapper1.selectBlogWithAuthor(1));
-
-
         sqlSession1.close();
         sqlSession2.close();
 
     }
 
+    /**
+     * 多表查询时候引起脏读
+     * @throws Exception
+     */
     @Test
     public void testCacheWithDiffNamespcae() throws  Exception{
         SqlSession sqlSession1 = sqlSessionFactory.openSession(true);
@@ -102,12 +103,14 @@ public class SecondCache {
 
         System.out.println("blog 数据："+blogMapper.selectBlogWithAuthor(1));
         sqlSession.commit();
-        authorMapper.updateAuthor("1","李四");
+        authorMapper.updateAuthor("1","李四"+new Random(10).nextInt());
         System.out.println("blog 数据："+blogMapper1.selectBlogWithAuthor(1));
 
         sqlSession1.close();
         sqlSession2.close();
     }
+
+
 
 
 
