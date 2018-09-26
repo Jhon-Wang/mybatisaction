@@ -40,7 +40,7 @@ public class ExampleTest {
         System.out.println(blog);
 
         Blog blog2 = new Blog();
-        blog2.setAuthCode(1);
+        blog2.setAuthCode("1");
         blog2.setContent("添加了新的博客");
         blogMapper.insertBlog("添加了新的博客",1);
 
