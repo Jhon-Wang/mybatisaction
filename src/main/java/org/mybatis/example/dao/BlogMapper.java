@@ -1,6 +1,7 @@
 package org.mybatis.example.dao;
 
 import org.apache.ibatis.annotations.Param;
+import org.mybatis.example.dto.BlogWithAuthor;
 import org.mybatis.example.entity.Blog;
 
 import java.util.List;
@@ -34,4 +35,7 @@ public interface BlogMapper {
      * @return 返回修改行数
      */
     int insertBlog(@Param("content") String content,@Param("authCode") int authCode);
+
+    List<BlogWithAuthor> selectBlogWithAuthor(int id);
+
 }

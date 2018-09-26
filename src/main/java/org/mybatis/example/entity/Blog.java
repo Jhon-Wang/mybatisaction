@@ -1,5 +1,7 @@
 package org.mybatis.example.entity;
 
+import java.io.Serializable;
+
 /**
  * Copyright © 2018 pagoda Inc.
  *
@@ -8,13 +10,13 @@ package org.mybatis.example.entity;
  * @date 2018/8/3
  */
 
-public class Blog {
+public class Blog implements Serializable {
 
     private int id;
 
     private String content;
 
-    private int authCode;
+    private String authCode;
 
     public int getId() {
         return id;
@@ -32,11 +34,11 @@ public class Blog {
         this.content = content;
     }
 
-    public int getAuthCode() {
+    public String getAuthCode() {
         return authCode;
     }
 
-    public void setAuthCode(int authCode) {
+    public void setAuthCode(String authCode) {
         this.authCode = authCode;
     }
 

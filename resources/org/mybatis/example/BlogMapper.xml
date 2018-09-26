@@ -3,6 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.mybatis.example.dao.BlogMapper">
+    <cache></cache>
 
     <select id="selectBlog" resultType="org.mybatis.example.entity.Blog">
         SELECT * FROM blog WHERE id = #{id}
@@ -13,8 +14,23 @@
     </select>
 
     <insert id="insertBlog">
-        INSERT INTO blog (content,auth_code) VALUES (#{content},#{authCode})
+        INSERT INTO blog (content,authCode) VALUES (#{content},#{authCode})
     </insert>
+
+    <select id="selectBlogWithAuthor" resultType="org.mybatis.example.dto.BlogWithAuthor">
+        SELECT
+            blog.content,
+            author.authName
+        FROM
+            blog
+        LEFT JOIN
+            author
+        ON
+            blog.authCode = author.authCode
+        WHERE
+            blog.id = #{id}
+    </select>
+
 
 
 </mapper>

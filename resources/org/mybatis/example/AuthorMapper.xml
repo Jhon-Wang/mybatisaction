@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.mybatis.example.dao.AuthorMapper">
+    <cache></cache>
+    <insert id="insertAuthor">
+        INSERT INTO author (auth_code,auth_name) VALUES (#{authCode},#{authName})
+    </insert>
+
+    <update id="updateAuthor">
+        UPDATE
+            author
+        SET
+            author.authName = #{authName}
+        WHERE
+            author.authCode = #{authCode}
+    </update>
+
+</mapper>
