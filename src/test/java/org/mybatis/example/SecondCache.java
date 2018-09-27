@@ -103,7 +103,7 @@ public class SecondCache {
 
         System.out.println("blog 数据："+blogMapper.selectBlogWithAuthor(1));
         sqlSession.commit();
-        authorMapper.updateAuthor("1","李四"+new Random(10).nextInt());
+        authorMapper.updateAuthor("1","李四"+ new Random(20).nextInt(20));
         System.out.println("blog 数据："+blogMapper1.selectBlogWithAuthor(1));
 
         sqlSession1.close();
