@@ -14,7 +14,7 @@
     </select>
 
     <insert id="insertBlog">
-        INSERT INTO blog (content,auth_code) VALUES (#{content},#{authCode})
+        INSERT INTO blog (content,authCode) VALUES (#{content},#{authCode})
     </insert>
 
 
