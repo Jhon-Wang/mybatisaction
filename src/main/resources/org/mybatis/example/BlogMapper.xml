@@ -6,7 +6,7 @@
 
 
     <select id="selectBlog" resultType="org.mybatis.example.entity.Blog">
-        SELECT * FROM blog WHERE id = #{id}
+        SELECT * FROM BLOG WHERE id = #{id}
     </select>
 
     <select id="selectAll" resultType="org.mybatis.example.entity.Blog">
