@@ -23,40 +23,40 @@ public class ExampleTest {
     private BlogMapper blogMapper = null;
 
     @Before
-    public void setup(){
+    public void setup() {
         try {
             inputStream = Resources.getResourceAsStream(resource);
             sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
             sqlSession = sqlSessionFactory.openSession();
-             blogMapper = sqlSession.getMapper(BlogMapper.class);
+            blogMapper = sqlSession.getMapper(BlogMapper.class);
 
-        }catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     @Test
-    public void selectBlogTest(){
+    public void selectBlogTest() {
         Blog blog = blogMapper.selectBlog(1);
         System.out.println(blog);
     }
 
     @Test
-    public void selectAllTest(){
+    public void selectAllTest() {
         List<Blog> blogs = blogMapper.selectAll();
         System.out.println(blogs);
     }
 
     @Test
-    public void insertBlogTest(){
+    public void insertBlogTest() {
 
-        int num = blogMapper.insertBlog("这是第二个对象",2);
+        int num = blogMapper.insertBlog("这是第二个对象", 2);
         System.out.println(num);
     }
 
 
     @After
-    public void clearUp(){
+    public void clearUp() {
         sqlSession.close();
     }
 
